@@ -149,3 +149,51 @@
       Bluespace: 8
   - type: Item
     size: Normal
+
+- type: entity
+  id: PortableGeneratorClunkerCircuitboard
+  parent: BaseMachineCircuitboard
+  name: Clunker portable generator machine board 
+  components:
+    - type: Sprite
+      state: makeshift
+    - type: MachineBoard
+      prototype: PortableGeneratorClunker
+      requirements: # Frontier
+        Capacitor: 1 # Frontier stackRequirements<requirements
+      stackRequirements:
+        Cable: 10
+    - type: PhysicalComposition
+      materialComposition:
+        Glass: 200
+      chemicalComposition:
+        Silicon: 20
+    - type: StaticPrice
+      price: 40
+    - type: BindToStation # Frontier
+      enabled: false # Frontier - should be draggable between stations
+    - type: Construction
+      graph: MakeshiftClunkerCircuitboard
+      node: clunkerScrapCircuit
+
+- type: entity
+  name: Scrap Clunker Circuitboard
+  parent: BaseItem
+  id: PortableGeneratorClunkerScrapCircuitboard
+  description: A huge lump of various circuits, strangely fused together. You could likely extract some materials out of this.
+  components:
+  - type: Sprite
+    sprite: Objects/Materials/Scrap/generic.rsi
+    layers:
+    - state: glass-4
+      map: [ "base" ]
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: MakeshiftClunkerCircuitboard
+    node: inCompletePortableGeneratorClunkerCircuitboard
+  - type: PhysicalComposition
+    materialComposition:
+      Glass: 200 # 15 sheets
+      Steel: 100 # 5 sheets
+      RawScrapTech: 100 # Frontier: 3 sheets

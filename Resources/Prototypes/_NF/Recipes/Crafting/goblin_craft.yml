@@ -211,3 +211,13 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+
+  # makeshift Clunker circuit Forge
+- type: construction
+  id: clunkerScrapCircuit
+  graph: MakeshiftClunkerCircuitboard
+  startNode: start
+  targetNode: clunkerScrapCircuit
+  category: construction-category-goblin
+  entityWhitelist: *goblinWhitelist
+  objectType: Item

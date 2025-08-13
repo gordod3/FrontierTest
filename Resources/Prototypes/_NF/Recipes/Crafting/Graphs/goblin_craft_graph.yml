@@ -684,3 +684,4 @@
         doAfter: 0.5
   - node: NFGoblinMadeVehicleDumpster
     entity: NFGoblinMadeVehicleDumpster
+

@@ -1,0 +1,44 @@
+  # Makeshift Circuit Forge
+- type: constructionGraph
+  id: MakeshiftClunkerCircuitboard
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: inCompletePortableGeneratorClunkerCircuitboard
+          steps:
+          - component: MachineBoard 
+            icon:
+              sprite: Objects/Materials/Scrap/generic.rsi
+              state: glass-4
+              map: [ "base" ]
+            doAfter: 0.5
+          - component: GoblinPreciousTrash
+            name: construction-graph-component-goblin-precious-trash
+            icon:
+              sprite: Objects/Consumable/Food/snacks.rsi
+              state: cheesiehonkers-trash
+            doAfter: 0.2
+          - component: GoblinPreciousTrash
+            name: construction-graph-component-goblin-precious-trash
+            icon:
+              sprite: Objects/Consumable/Food/snacks.rsi
+              state: boritos-trash
+            doAfter: 0.2
+          - component: GoblinPreciousTrash
+            name: construction-graph-component-goblin-precious-trash
+            icon:
+              sprite: Objects/Consumable/Food/snacks.rsi
+              state: chips-trash
+            doAfter: 0.2
+        
+    - node: inCompletePortableGeneratorClunkerCircuitboard
+      entity: PortableGeneratorClunkerScrapCircuitboard
+      edges:
+        - to: clunkerScrapCircuit
+          steps:
+            - tool: Welding
+              doAfter: 4
+        
+    - node: clunkerScrapCircuit
+      entity: PortableGeneratorClunkerCircuitboard

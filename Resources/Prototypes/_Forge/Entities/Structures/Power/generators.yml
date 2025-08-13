@@ -28,3 +28,36 @@
   components:
   - type: PowerSupplier
     supplyRate: 100000000
+
+- type: entity
+  parent: PortableGeneratorJrPacman
+  name: Clunker
+  description: |-
+    A big piece of art - goblins makeshift of scrap generator wich capable of powering... Something with lv cable. 
+  id: PortableGeneratorClunker
+  suffix: Welding Fuel, 5 kW
+  components:
+    - type: Sprite
+      sprite: Forge/Structures/Power/generation.rsi
+      layers:
+        - state: clunker
+          map: [ "enum.GeneratorVisualLayers.Body" ]
+        - state: clunker_sparkle
+          map: [ "enum.GeneratorVisualLayers.Unlit" ]
+          shader: unshaded
+          visible: false
+    - type: GenericVisualizer
+      visuals:
+        enum.GeneratorVisuals.Running:
+          enum.GeneratorVisualLayers.Body:
+            True: { state: clunker_on_lit }
+            False: { state: clunker }
+          enum.GeneratorVisualLayers.Unlit:
+            True: { visible: true }
+            False: { visible: false }
+
+    - type: GoblinMade
+    
+    - type: Machine
+      board: PortableGeneratorClunkerCircuitboard
+
